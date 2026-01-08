@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { API_OPTIONS, IMG_CDN_URL } from "../utils/constants";
+import { useNavigate } from "react-router-dom";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -13,6 +14,8 @@ const MovieDetails = () => {
   const [similar, setSimilar] = useState([]);
   const [activeTab, setActiveTab] = useState("overview");
   const [showTrailer, setShowTrailer] = useState(false);
+
+  const navigate = useNavigate();
 
   // MOVIE DETAILS
   useEffect(() => {
@@ -68,6 +71,14 @@ const MovieDetails = () => {
         backgroundSize: "cover",
       }}
     >
+      {/* BACK BUTTON */}
+      <button
+        onClick={() => navigate(-1)}
+        className="fixed top-6 left-6 z-50 bg-black/70 hover:bg-black text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2"
+      >
+        ← Back
+      </button>
+
       {/* HERO */}
       <div className="flex gap-10 p-10">
         <img

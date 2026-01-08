@@ -9,7 +9,7 @@ const VideoTitle = ({
   isMuted,
   setIsMuted,
 }) => {
-  const [showDesc, setShowDesc] = useState(false);
+  const [showDesc, setShowDesc] = useState(true);
 
   const handlePlayPause = () => {
     setIsPlaying(!isPlaying);
